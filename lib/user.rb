@@ -8,6 +8,11 @@ class User
   end
 
   def learn(joke)
-    @jokes << joke  
+    @jokes << joke
   end
+
+  def tell(user, joke)
+    user.jokes << joke
+  end
+
 end
