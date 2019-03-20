@@ -31,17 +31,20 @@ class OpenMicTest < Minitest::Test
     assert_equal [], open_mic.performers
   end
 
+  def test_welcome_method_adds_users_to_performers_array
+    open_mic = OpenMic.new({location: "Comedy Works", date: "11-20-18"})
+
+    sal = User.new("Sal")
+    ali = User.new("Ali")
+
+    open_mic.welcome(sal)
+    open_mic.welcome(ali)
+
+    assert_equal [sal, ali], open_mic.performers
+  end
+
 end
 
-#
-# pry(main)> open_mic.performers
-# # => []
-#
-# pry(main)> sal = User.new("Sal")
-# # => #<User:0x00007fe8fda12a00...>
-#
-# pry(main)> ali = User.new("Ali")
-# # => #<User:0x00007fe8ff0dddc0...>
 #
 # pry(main)> open_mic.welcome(sal)
 #
