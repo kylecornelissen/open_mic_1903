@@ -34,13 +34,13 @@ class UserTest < Minitest::Test
   def test_if_name_attribute_exists
     sal = User.new("Sal")
 
-    assert_equal "Sal", user.name
+    assert_equal "Sal", sal.name
   end
 
-  # def test_if_jokes_attribute_initialized_as_empty_array
-  #   sal = User.new("Sal")
-  #
-  #   assert_equal [], user.jokes
-  # end
+  def test_if_jokes_attribute_initialized_as_empty_array
+    sal = User.new("Sal")
+
+    assert_equal [], sal.jokes
+  end
 
 end
