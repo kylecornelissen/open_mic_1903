@@ -15,4 +15,10 @@ class User
     user.jokes << joke
   end
 
+  def joke_by_id(id)
+    @jokes.find_all do |joke|
+      joke.id == id
+    end
+  end
+
 end
