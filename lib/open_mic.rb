@@ -18,4 +18,16 @@ class OpenMic
     @performers << user
   end
 
+  def repeated_jokes
+
+    # @users.each do
+
+    if @jokes.length == @jokes.uniq.length
+      false
+    else
+      true
+    end
+
+  end
+
 end
