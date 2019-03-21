@@ -1,33 +1,27 @@
 class OpenMic
-  attr_reader :arg,
-              :performers
-  def initialize(arg)
-    @arg = arg
+  attr_reader :performers,
+              :location,
+              :date
+
+  def initialize(openmic_info)
+    @location   = openmic_info[:location]
+    @date       = openmic_info[:date]
     @performers = []
-  end
-
-  def location
-    @arg[:location]
-  end
-
-  def date
-    @arg[:date]
   end
 
   def welcome(user)
     @performers << user
   end
 
-  def repeated_jokes
+  def repeated_jokes?
+    total_jokes = []
 
-    # @users.each do
-
-    if @jokes.length == @jokes.uniq.length
-      false
-    else
-      true
+    @performers.each do |performer|
+      performer.jokes.each do |joke|
+        total_jokes << joke
+      end
     end
-
+    total_jokes.length != total_jokes.uniq.length
   end
 
 end
